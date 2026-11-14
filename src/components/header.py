@@ -1,16 +1,13 @@
-
+from pathlib import Path
 import streamlit as st
-import base64
-
-def header_home():
-    logo_path = r"X:\VScode\Artificial_intelligence_n_Machine_learning\QuickAttendance\Images\QuickAttendanceLogo.png"
-
-    with open(logo_path, "rb") as image_file:
-        encoded_image = base64.b64encode(image_file.read()).decode()
-
-    st.markdown(f"""
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 30px; margin-top: 30px">
-            <img src="data:image/png;base64,{encoded_image}" style="height: 150px; width: auto; object-fit: contain;"/>
-            <h1 style="text-align: center; color: #E0E3FF; font-size: 7rem; margin: 0;">Quick</br>Attendance</h1>
-        </div>
-    """, unsafe_allow_html=True)
+ASSETS=Path(__file__).resolve().parents[1]/"assets"
+def _brand(size=48):
+    a,b=st.columns([0.12,0.88],vertical_alignment="center",gap="small")
+    with a:
+        logo=ASSETS/"logo.png"
+        if logo.exists(): st.image(str(logo),width=size)
+        else: st.markdown("<div class='brand-mark'>Q</div>",unsafe_allow_html=True)
+    with b:
+        st.markdown("<div class='brand-title'>Quick Attendance</div><div class='brand-subtitle'>Simple attendance management</div>",unsafe_allow_html=True)
+def header_home(): _brand()
+def header_dashboard(): _brand(44)
