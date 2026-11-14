@@ -1,11 +1,54 @@
-.env
-.vscode
-
-*.pyc
+# Python
 __pycache__/
+*.py[cod]
+*.pyd
+.Python
 
+# Virtual environments
+.venv/
 venv/
+env/
 
-.streamlit/
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
 
+# Streamlit secrets
+.streamlit/secrets.toml
+!.streamlit/secrets.toml.example
+
+# IDE
+.idea/
+.vscode/
+
+# Testing and cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+logs/
+
+# Database files and backups
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.bak
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/
 dist/
+
+# Local backups and duplicates
+QuickAttendance_Full/
